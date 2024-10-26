@@ -1,0 +1,15 @@
+type Bookmark = 
+ record {
+   category: text;
+   id: nat;
+   title: text;
+   url: text;
+ };
+service : {
+  createBookmark: (text, text, opt text) -> (nat);
+  deleteBookmark: (nat) -> (bool);
+  getAllBookmarks: () -> (vec Bookmark) query;
+  getBookmark: (nat) -> (opt Bookmark) query;
+  getBookmarksByCategory: (text) -> (vec Bookmark) query;
+  updateBookmark: (nat, opt text, opt text, opt text) -> (bool);
+}
